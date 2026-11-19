@@ -1,22 +1,22 @@
-import glob, pandas as pd
+import glob
+import pandas as pd
 
-files = sorted(glob.glob("data/raw/phishtank/phishtank_*.csv.gz"))
-frames = []
-for f in files:
-    d = pd.read_csv(f)
-    d["snapshot_file"] = f
-    frames.append(d)
 
-pt = pd.concat(frames, ignore_index=True)
-pt = pt.drop_duplicates("phish_id")                     # same phish appears in many snapshots
-pt = pt[["phish_id", "url", "submission_time", "target"]]
-pt["label"] = 1
-pt["source"] = "phishtank"
-pt["collected_at"] = pd.to_datetime(pt["submission_time"], utc=True)   # use for the time split
-pt.to_csv("data/raw/phishtank_merged.csv", index=False)
-print(len(pt), "unique phishes;", pt.collected_at.min(), "to", pt.collected_at.max())
+def build_raw() -> pd.DataFrame:
+    files = sorted(glob.glob("data/raw/phishtank/phishtank_*.csv.gz"))
+    if not files:
+        raise SystemExit("No PhishTank snapshots found in data/raw/phishtank/")
 
-print(pt.url.str.len().describe())
-print(pt.url.str.startswith("https").mean())     # share of https vs http
-print(pt.target.value_counts().head(10))          # which brands are most targeted
-print(pt.url.sample(5, random_state=1).tolist())  # eyeball a few as text only
+    pt = pd.concat([pd.read_csv(f) for f in files], ignore_index=True)
+    pt = pt.drop_duplicates("phish_id")                     # same phish appears in many snapshots
+    pt = pt[["url", "submission_time"]].rename(columns={"submission_time": "collected_at"})
+    pt["label"] = 1
+    pt["source"] = "phishtank"
+    return pt[["url", "label", "source", "collected_at"]]
+
+
+if __name__ == "__main__":
+    raw = build_raw()
+    raw.to_csv("data/raw/raw.csv", index=False)
+    print(f"Wrote data/raw/raw.csv: {len(raw):,} rows")
+    print(f"collected_at range: {raw.collected_at.min()}  to  {raw.collected_at.max()}")
