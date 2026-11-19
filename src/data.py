@@ -28,7 +28,7 @@ def clean(df: pd.DataFrame):
         log.append((name, before, after, before - after))
 
     df = df.copy()
-    df["collected_at"] = pd.to_datetime(df["collected_at"], utc=True, errors="coerce")
+    df["collected_at"] = pd.to_datetime(df["collected_at"], utc=True, errors="coerce", format="ISO8601")
     df = df.sort_values("collected_at")
 
     n = len(df); log.append(("Raw rows", n, n, 0))

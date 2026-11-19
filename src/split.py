@@ -22,7 +22,7 @@ def _assign_benign_domains(benign: pd.DataFrame, rng) -> dict:
 def make_splits(df: pd.DataFrame, seed: int = SEED):
     """Returns (split_df, dropped_df). split_df has a 'split' column."""
     df = df.copy()
-    df["collected_at"] = pd.to_datetime(df["collected_at"], utc=True, errors="coerce")
+    df["collected_at"] = pd.to_datetime(df["collected_at"], utc=True, errors="coerce", format="ISO8601")
 
     # Phishing rows need a timestamp for the time split
     df = df[~((df["label"] == 1) & df["collected_at"].isna())]
