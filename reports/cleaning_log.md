@@ -1,7 +1,7 @@
 | Step | Before | After | Removed |
 |---|---|---|---|
-| Raw rows | 43,811 | 43,811 | 0 |
-| Drop empty/invalid/over-long | 43,811 | 43,801 | 10 |
-| Drop URLs with conflicting labels | 43,801 | 43,801 | 0 |
-| Exact duplicates | 43,801 | 43,386 | 415 |
-| Near-duplicate templates | 43,386 | 41,110 | 2,276 |
+| Raw rows | 300,000 | 300,000 | 0 |
+| Drop empty/invalid/over-long | 300,000 | 299,982 | 18 |
+| Drop URLs with conflicting labels | 299,982 | 299,979 | 3 |
+| Exact duplicates | 299,979 | 297,449 | 2,530 |
+| Near-duplicate templates | 297,449 | 276,151 | 21,298 |

@@ -2,27 +2,28 @@
 
 | Split | Rows | Phishing | Benign | Phishing share | Phish date range |
 |---|---|---|---|---|---|
-| train | 28,776 | 28,776 | 0 | 100.0% | 2013-05-28 15:59 to 2026-01-24 19:01 |
-| val | 745 | 745 | 0 | 100.0% | 2026-01-25 10:39 to 2026-05-16 02:23 |
-| test | 3,493 | 3,493 | 0 | 100.0% | 2026-05-16 15:45 to 2026-11-18 09:04 |
+| train | 193,278 | 93,492 | 99,786 | 48.4% | 2024-07-02 00:00 to 2025-08-19 00:00 |
+| val | 32,517 | 11,738 | 20,779 | 36.1% | 2025-08-20 00:00 to 2025-10-26 00:00 |
+| test | 32,172 | 11,058 | 21,114 | 34.4% | 2025-10-27 00:00 to 2025-11-06 00:00 |
 
-Rows dropped to keep domains in one split only: 8,096 (19.7% of cleaned data)
+Rows dropped to keep domains in one split only: 18,184 (6.6% of cleaned data)
 
 Dropped by label:
 
 label
-1    8096
+0      916
+1    17268
 
 Top domains causing drops:
 
 reg_domain
-qrco.de          1743
-q-r.to           1304
-ead.me           1124
-weebly.com        427
-vercel.app        354
-wixstudio.com     313
-google.com        264
-pages.dev         260
-wl.co             189
-framer.app        147
+pages.dev        4681
+vercel.app        542
+instagram.com     397
+blogspot.com      310
+netlify.app       271
+vh.net.pl         186
+github.io         177
+sa.com            171
+blogspot.be       170
+blogspot.ae       154

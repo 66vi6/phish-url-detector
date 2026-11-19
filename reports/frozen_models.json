@@ -1,0 +1,9 @@
+{
+  "first_test_evaluation_utc": "2026-11-19T11:32:10+00:00",
+  "git_commit": "bbc0b55",
+  "hashes": {
+    "models/ngram_lr.joblib": "52107df68f8a7b53e4b59ba3cea927094e542a9dda53a3bbcddf9a6c9b6b7357",
+    "models/gbm.joblib": "a9148bb48f52cf2a1a44604acccf86a913bdf0b7c8ed33e12b740e48606b7116",
+    "models/blend.joblib": "19a619fca8aa08327fe9ba5691522b15e8f0839fd7000e2a38f6ad72ee92c7c6"
+  }
+}
