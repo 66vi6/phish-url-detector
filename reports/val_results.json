@@ -22,5 +22,13 @@
     "recall_fpr_1pct": 0.5111603339580848,
     "precision_at_1pct_prevalence": 0.7817353283112473,
     "note": "207 trees"
+  },
+  "Blend (n-gram LR + LightGBM)": {
+    "pr_auc": 0.9661132856512981,
+    "roc_auc": 0.9777986208683124,
+    "recall_fpr_0.1pct": 0.46771170557164765,
+    "recall_fpr_1pct": 0.7282330891122849,
+    "precision_at_1pct_prevalence": 0.8307487112937529,
+    "note": "w_gbm=0.1"
   }
 }

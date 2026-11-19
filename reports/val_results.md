@@ -5,3 +5,4 @@
 | Rule baseline | 0.3750 | 0.5178 | 0.001 | 0.001 | 1.000 | flag if any red flag: precision 0.59, recall 0.06 |
 | TF-IDF char n-grams + LR | 0.9636 | 0.9765 | 0.495 | 0.722 | 0.839 | C=16 |
 | LightGBM (handcrafted features) | 0.8977 | 0.9235 | 0.341 | 0.511 | 0.782 | 207 trees |
+| Blend (n-gram LR + LightGBM) | 0.9661 | 0.9778 | 0.468 | 0.728 | 0.831 | w_gbm=0.1 |
